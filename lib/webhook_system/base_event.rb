@@ -4,10 +4,12 @@ module WebhookSystem
 
   # This is the class meant to be used as the base class for any Events sent through the Webhook system
   class BaseEvent
-    include PhModel
+    include ActiveModel::Attributes
+    include ActiveModel::AttributeAssignment
+    include ActiveModel::Validations
 
-    def initialize(*args, &block)
-      super(*args, &block)
+    def initialize(...)
+      super
       @event_id = SecureRandom.uuid.freeze
     end
 
@@ -37,6 +39,10 @@ module WebhookSystem
         result[attribute_name.to_s] = public_send(attribute_method).as_json
       end
       result.deep_stringify_keys
+    end
+
+    def self.build(attrs)
+      new.tap { |instance| instance.assign_attributes(attrs) }
     end
 
     def self.key_is_reserved?(key)

@@ -31,7 +31,7 @@ describe "Integration", aggregate_failures: true, db: true do
     end
   end
 
-  let(:event) { event_class.build(name: 'John', age: 21) }
+  let(:event) { event_class.new.tap { |e| e.assign_attributes(name: 'John', age: 21) } }
 
   let(:expected_payload) do
     {

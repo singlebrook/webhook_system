@@ -5,12 +5,19 @@ require 'spec_helper'
 describe WebhookSystem, aggregate_failures: true do
   let(:widget_class) do
     Class.new do
-      include PhModel
+      include ActiveModel::Attributes
+      include ActiveModel::AttributeAssignment
+      include ActiveModel::Validations
+
       attribute :foo
       attribute :bar
 
       def as_json
         { foo: foo, bar: bar }
+      end
+
+      def self.build(attrs)
+        new.tap { |instance| instance.assign_attributes(attrs) }
       end
     end
   end

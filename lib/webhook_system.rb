@@ -3,7 +3,6 @@
 require 'active_support/all'
 require 'active_record'
 require 'active_job'
-require 'ph_model'
 require 'validate_url'
 require 'faraday'
 require 'faraday-encoding'

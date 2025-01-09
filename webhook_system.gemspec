@@ -37,10 +37,10 @@ Gem::Specification.new do |gem|
   }
 
   gem.required_ruby_version = '> 2.7.0'
-  gem.add_runtime_dependency 'activemodel', '>= 6.1', '< 7.3'
-  gem.add_runtime_dependency 'activesupport', '>= 6.1', '< 7.3'
-  gem.add_runtime_dependency 'activerecord', '>= 6.1', '< 7.3'
-  gem.add_runtime_dependency 'activejob', '>= 6.1', '< 7.3'
+  gem.add_runtime_dependency 'activemodel', '>= 6.1', '< 8.1'
+  gem.add_runtime_dependency 'activesupport', '>= 6.1', '< 8.1'
+  gem.add_runtime_dependency 'activerecord', '>= 6.1', '< 8.1'
+  gem.add_runtime_dependency 'activejob', '>= 6.1', '< 8.1'
   gem.add_runtime_dependency 'faraday', '> 0.9'
   gem.add_runtime_dependency 'faraday-encoding', '>= 0.0.2', '< 1.0'
   gem.add_runtime_dependency 'validate_url', '~> 1.0'
